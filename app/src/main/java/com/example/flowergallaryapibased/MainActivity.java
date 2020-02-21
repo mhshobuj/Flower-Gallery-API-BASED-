@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         recyclerView = findViewById(R.id.flowerRV);
 
         final Retrofit retrofit = new Retrofit.Builder()
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e("flower", "onResponse: "+flowerList.size() );
                     FlowerAdapter adapter = new FlowerAdapter(MainActivity.this, flowerList);
                     //LinearLayoutManager llm = new LinearLayoutManager(MainActivity.this);
-                    GridLayoutManager glm = new GridLayoutManager(MainActivity.this, 2);
+                    GridLayoutManager glm = new GridLayoutManager(MainActivity.this, 3);
                     recyclerView.setLayoutManager(glm);
                     recyclerView.setAdapter(adapter);
                 }
